@@ -8,7 +8,8 @@ getSingleThought,
 createThought,
 updateThought,
 deleteThought,
-
+addReaction,
+deleteReactions,
 } = require("../../controllers/thoughtcontroller")
 
 //matches /api/thoughts
@@ -24,9 +25,11 @@ router.route("/:thoughtId")
 
 
 //matches /api/thoughts/thoughtId
-router.route("/:thoughtId")
-.add(reaction)
-.delete(reaction)
+router.route("/:thoughtId/reactions")
+.post(addReaction)
+
+router.route("/:thoughtId/reactions/:reactionId")
+.delete(deleteReactions)
 
 
 module.exports = router
